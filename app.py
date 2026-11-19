@@ -1,16 +1,7 @@
 
 
 
-# Matplotlib은 서버가 그림을 만들어, 서버에 한글 글꼴이 없으면 글자가 □로 나옵니다.
-# 그래서 쓸 수 있는 한글 글꼴을 먼저 찾고, 없으면 None을 돌려줍니다.
-def korean_font():
-    """Matplotlib가 쓸 수 있는 한글 글꼴 이름. 없으면 None(배포 서버에는 없을 수 있습니다)."""
-    names = {f.name for f in fm.fontManager.ttflist}
-    return next((f for f in ["Pretendard", "Malgun Gothic", "AppleGothic", "NanumGothic"] if f in names), None)
-
-
-# 첫 화면에 질문을 제목으로 둡니다(프로젝트 평가: 질문·데이터).
-st.title("어느 지점의 실적이 더 좋은가")
+# Ma
 # 출처, 기간, 단위를 밝힙니다.
 st.caption("출처: 수업용 가상 데이터(sales.csv) · 2026년 1~12월 지점별 월 실적 · 금액 단위: 백만원")
 
