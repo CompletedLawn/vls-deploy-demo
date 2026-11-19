@@ -1,30 +1,4 @@
 
-"""
-# Path: app.py가 있는 폴더를 찾을 때 씁니다. 배포에서 가장 중요한 줄의 재료입니다.
-from pathlib import Path
-
-# font_manager: 서버에 한글 글꼴이 있는지 찾을 때 씁니다.
-import matplotlib.font_manager as fm
-import matplotlib.pyplot as plt
-import pandas as pd
-import plotly.express as px
-# streamlit: 앱 화면을 만듭니다. 서버에서도 내 컴퓨터와 똑같이 app.py를 위에서 아래로 실행합니다.
-import streamlit as st
-
-# app.py가 있는 폴더. 배포 서버의 작업 폴더(저장소 맨 위)와 다를 수 있어 파일은 이 폴더 기준으로 찾습니다.
-# __file__은 app.py의 경로, .parent는 그 폴더입니다. 서버에서는 저장소 안 app.py의 폴더가 됩니다.
-HERE = Path(__file__).parent
-COLORS = {"A": "#0072B2", "B": "#D55E00"}
-
-# 브라우저 탭 이름과 넓은 화면을 정합니다.
-st.set_page_config(page_title="지점 실적 탐색", layout="wide")
-
-
-# 결과를 기억해 두어 위젯을 바꿔도 CSV를 다시 읽지 않습니다.
-@st.cache_data
-# HERE / "sales.csv": app.py 옆의 파일. C:/Users/… 같은 내 컴퓨터 경로를 쓰면 서버에서 못 찾습니다(1-3).
-def load_data():
-    return pd.read_csv(HERE / "sales.csv")
 
 
 # Matplotlib은 서버가 그림을 만들어, 서버에 한글 글꼴이 없으면 글자가 □로 나옵니다.
